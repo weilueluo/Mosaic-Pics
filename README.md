@@ -1,4 +1,5 @@
 # :white_square_button:Mosaic-Pics
+[中文](https://github.com/Redcxx/Mosaic-Pics/blob/master/README.cn.md)
 -  [Sample Image Source](https://www.pixiv.net/member_illust.php?mode=medium&illust_id=75925639)
 -  Dimension: 4650 x 8280
 -  Database: 33k+
