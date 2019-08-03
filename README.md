@@ -26,7 +26,6 @@ optional arguments:
   ---
   method currently supported
   ---
-  
   euclidean:             classic euclidean distance between colors
   weighted euclidean:    euclidean but RGB fit to human perception: 0.3R, 0.59G, 0.11B
   weighted euclidean+:   closer approx than weighted euclidean: 2R, 4G, 3B
