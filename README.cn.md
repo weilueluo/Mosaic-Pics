@@ -1,12 +1,12 @@
 # :white_square_button:Mosaic-Pics
--  [图片来源](https://www.pixiv.net/member_illust.php?mode=medium&illust_id=75925639)
+-  [图片来源](https://twitter.com/sukemyon_443/status/1030028596339822594)
 -  尺寸: 4650 x 8280
 -  图片数据库数量: 3.3w
 -  使用的图片数量: 0.6w
 -  如果你想我帮你做，写一个issue就行辣
 
 
-![例图](https://github.com/Redcxx/Mosaic-Pics/blob/master/texas_outputs/euclidean/texas_0.6.jpg)
+![例图](https://github.com/Redcxx/Mosaic-Pics/blob/master/picture_outputs/euclidean/picture_0.7.jpg)
 # 用法
 ```
 > main.py
