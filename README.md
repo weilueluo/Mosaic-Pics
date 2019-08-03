@@ -9,38 +9,39 @@
 ![sample image](https://github.com/Redcxx/Mosaic-Pics/blob/master/texas_outputs/euclidean/texas_0.6.jpg)
 # Usage
 ```
-> main.py 
+> main.py
 
 arguments:
   -src --source         the image to stimulate
   -s --size             the size of each pieces
   -d --dest             the images output folder
   -f --folder           the folder containing images used to stimulate the source
-  
+
 optional arguments:
-  -m --method          the method used to compute difference of two colors, 
+  -m --method          the method used to compute difference of two colors,
                          default use euclidean (can be change in settings.py)
   -r --repeat           allow build with repeating images
   -fa --factor          result size compared to original size
-  
+
   ---
   method currently supported
   ---
-  euclidean:             classic euclidean distance between colors
-  weighted euclidean:    euclidean but RGB fit to human perception: 0.3R, 0.59G, 0.11B
-  weighted euclidean+:   closer approx than weighted euclidean: 2R, 4G, 3B
-  weighted euclidean++:  closer approx than weighted euclidean, details see source
-  
+  euclidean              classic euclidean distance between colors
+  weighted euclidean     euclidean but RGB fit to human perception: 0.3R, 0.59G, 0.11B
+  weighted euclidean+    closer approx than weighted euclidean: 2R, 4G, 3B
+  weighted euclidean++   closer approx than weighted euclidean, details see source
+  all                    run all methods
+
   method source: https://en.wikipedia.org/wiki/Color_difference
   ps: use " to surround multiple words input
-  
+
   ---
   relative speed (my machine)
   ---
-  euclidean:             e
-  weighted euclidean:    e+-(~5%)
-  weighted euclidean+:   e+-(~5%)
-  weighted euclidean++:  e+(~20%)
+  euclidean:             k
+  weighted euclidean:    k+-(~5%)
+  weighted euclidean+:   k+-(~5%)
+  weighted euclidean++:  k+(~20%)
 
 ```
 # Note

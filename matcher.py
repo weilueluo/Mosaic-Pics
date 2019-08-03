@@ -30,24 +30,24 @@ class Matcher(object):
     @staticmethod
     def euclidean(r1, g1, b1, r2, g2, b2):
         # https://en.wikipedia.org/wiki/Color_difference
-        return pow((r1 - r2), 2) + pow((g1 - g2), 2) + pow((b1 - b2), 2)
+        return sqrt(pow((r1 - r2), 2) + pow((g1 - g2), 2) + pow((b1 - b2), 2))
 
     @staticmethod
     def weighted_euclidean(r1, g1, b1, r2, g2, b2):
         # https://en.wikipedia.org/wiki/Color_difference
-        return 0.3 * pow((r1 - r2), 2) + 0.59 * pow((g1 - g2), 2) + 0.11 * pow((b1 - b2), 2)
+        return sqrt(0.3 * pow((r1 - r2), 2) + 0.59 * pow((g1 - g2), 2) + 0.11 * pow((b1 - b2), 2))
 
     @staticmethod
     def weighted_euclidean_plus(r1, g1, b1, r2, g2, b2):
         # https://en.wikipedia.org/wiki/Color_difference
-        return 2 * pow((r1 - r2), 2) + 4 * pow((g1 - g2), 2) + 3 * pow((b1 - b2), 2)
+        return sqrt(2 * pow((r1 - r2), 2) + 4 * pow((g1 - g2), 2) + 3 * pow((b1 - b2), 2))
 
     @staticmethod
     def weighted_euclidean_plus_plus(r1, g1, b1, r2, g2, b2):
         # https://en.wikipedia.org/wiki/Color_difference
         r_mean = (r1 + r2) / 2.0
-        return (2 + (r_mean / 256.0)) * pow((r1 - r2), 2) + 4 * pow((g1 - g2), 2) + ((2 + (255 - r_mean) / 256.0) * pow(
-            (b1 - b2), 2))
+        return sqrt((2 + (r_mean / 256.0)) * pow((r1 - r2), 2) + 4 * pow((g1 - g2), 2) + ((2 + (255 - r_mean) / 256.0) * pow(
+            (b1 - b2), 2)))
 
     def remove(self, image):
         self.images.remove(image)
@@ -90,4 +90,3 @@ class Matcher(object):
     #
     # def find_by_cmc_11(self, other):
     #     return self._find_by_lab_method(other, utilities.cmc_11_diff)
-
