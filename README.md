@@ -48,3 +48,4 @@ optional arguments:
 # Note
 - On first run it will create a database in source folder, subsequent run with same database will be much faster, see [settings.py](https://github.com/Redcxx/Mosaic-Pics/blob/master/settings.py) for more details
 - You should config [settings.py](https://github.com/Redcxx/Mosaic-Pics/blob/master/settings.py) before the first run on new database folder
+- This program only accept .jpg and .png files and does not search files recursively in the folder
