@@ -34,7 +34,12 @@ DATABASE_FILE_TYPE = '.data'
 DATABASE_META_FILE = 'meta'
 
 # reduce below if first run countered memory error
+
+# size of cache chunk before saving to local, must be >= 1
+# setting a low chunk size will result in subsequent run
+# set this amount as high as possible for highest performance
 DATABASE_CHUNK_SIZE = 2000
+# the size of each image in database
 # input size should not be less than value below
 DATABASE_IMAGE_HEIGHT = 120
 DATABASE_IMAGE_WIDTH = 120
