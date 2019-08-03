@@ -1,13 +1,13 @@
 # :white_square_button:Mosaic-Pics
 [中文](https://github.com/Redcxx/Mosaic-Pics/blob/master/README.cn.md)
--  [Sample Image Source](https://www.pixiv.net/member_illust.php?mode=medium&illust_id=75925639)
+-  [Sample Image Source](https://twitter.com/sukemyon_443/status/1030028596339822594)
 -  Dimension: 4650 x 8280
 -  Database: 33k+
 -  Used: 6k+
 - If you do not have images, I can build it for you, make a issue!
 
 
-![sample image](https://github.com/Redcxx/Mosaic-Pics/blob/master/texas_outputs/euclidean/texas_0.6.jpg)
+![sample image](https://github.com/Redcxx/Mosaic-Pics/blob/master/picture_outputs/euclidean/picture_0.7.jpg)
 # Usage
 ```
 > main.py
