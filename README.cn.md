@@ -7,7 +7,8 @@
 -  如果你想我帮你做，写一个issue就行辣
 
 
-![例图](https://github.com/Redcxx/Mosaic-Pics/blob/master/picture_outputs/euclidean/picture_0.7.jpg)
+![例图](https://github.com/Redcxx/Mosaic-Pics/blob/master/picture_output/euclidean/picture_0.7.jpg)
+- 为了展示效果，此图片跟原图有30%的遮罩混合，生肉移步 [picture_output](https://github.com/Redcxx/Mosaic-Pics/tree/master/picture_output)
 # 用法
 ```
 > main.py
