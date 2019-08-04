@@ -36,6 +36,9 @@ def get_avg_rgb(im):
     return np.array(im).mean(axis=(0, 1)).tolist()
 
 
+def get_dominant_color(im):
+    return im.quantize(colors=1, method=1, kmeans=1).convert('RGB').getpixel((0, 0))
+
 #
 # conversions
 #

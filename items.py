@@ -8,7 +8,7 @@ import utilities
 class DatabaseItem(object):
     def __init__(self, filename, width, height):
         self.image = Image.open(filename).resize((width, height)).convert(mode='RGB')
-        self.r, self.g, self.b = utilities.get_avg_rgb(self.image)
+        self.r, self.g, self.b = utilities.get_dominant_color(self.image)
 
 
 class ImageItem(object):

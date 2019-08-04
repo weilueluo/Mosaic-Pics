@@ -1,6 +1,8 @@
 import argparse
+import functools
 import math
 import os
+from multiprocessing.dummy import Pool
 
 from PIL import Image
 
@@ -10,13 +12,12 @@ from database import ImageDatabase
 
 
 def resize_to_factor(source, factor):
-    if not isinstance(source, Image.Image):
-        raise ValueError('source must be PIL.Image.Image object')
     width, height = source.size
     return source.resize((int(width * factor), int(height * factor)))
 
 
 def make_diff_blended_images(background, foreground):
+    # make 1/10 to 9/10 blended
     for blend_ratio in range(1, 10):
         blend_ratio = blend_ratio / 10
         blended_images = Image.blend(foreground, background, blend_ratio)
@@ -51,43 +52,88 @@ def generate_matcher(folder, size):
     return database.generate_matcher()
 
 
+def _match_one(chunk_index, source, background, matcher, use_repeat, method):
+    chunk = source.crop(chunk_index)
+    best_match = matcher.find_closest(chunk, method=method)
+    if not use_repeat:
+        matcher.remove(best_match)
+    background.paste(best_match.image, (chunk_index[0], chunk_index[1]))
+
+
+def _build_without_repeat(source, background, matcher, chunk_indexes, method):
+    _build_ = functools.partial(_match_one, background=background, source=source, matcher=matcher, use_repeat=False,
+                                method=method)
+    total = len(chunk_indexes)
+    for index, chunk_index in enumerate(chunk_indexes):
+        _build_(chunk_index)
+        utilities.print_progress(index + 1, total)
+    utilities.print_done()
+    return background
+
+
+def _build_with_repeat(source, background, matcher, chunk_indexes, method):
+    _build_ = functools.partial(_match_one, background=background, source=source, matcher=matcher, use_repeat=True,
+                                method=method)
+    # This is actually slower
+    # pool = Pool()
+    # total = len(chunk_indexes)
+    # for index, _ in enumerate(pool.imap_unordered(_build_, chunk_indexes, chunksize=1)):
+    #     utilities.print_progress(index + 1, total)
+    # utilities.print_done()
+    # return background
+
+    total = len(chunk_indexes)
+    for index, chunk_index in enumerate(chunk_indexes):
+        _build_(chunk_index)
+        utilities.print_progress(index + 1, total)
+    utilities.print_done()
+    return background
+
+
 def _build(source, matcher, step, use_repeat, method):
     source_width, source_height = source.size
 
     total_chunks = math.ceil(source_width / step) * math.ceil(source_height / step)
 
-    if matcher.size < total_chunks:
+    if matcher.size < total_chunks and not use_repeat:
         raise ValueError('Database does not have enough images: {} < {}'.format(matcher.size, total_chunks))
 
-    background = Image.new(source.mode, source.size, 'black')
     print('')  # new line
-    print(
-        'building image | {} | {} x {} | [{}] -> {} '.format(method, background.width, background.height, matcher.size,
-                                                             total_chunks))
-    curr_chunk_num = 0
+    print('Gathering chunks | {}'.format(total_chunks))
 
-    # main loop
-    for h in range(0, source_height, step):
-        for w in range(0, source_width, step):
-            bottom_w = w + step
-            bottom_h = h + step
-            if bottom_w > source_width:
-                bottom_w = source_width
-            if bottom_h > source_height:
-                bottom_h = source_height
-            curr_chunk = source.crop((w, h, bottom_w, bottom_h))
-            best_match = matcher.find_closest(curr_chunk, method=method)
-            if not use_repeat:
-                matcher.remove(best_match)
-            background.paste(best_match.image, (w, h))
+    curr_chunk_num = 0
+    chunk_indexes = []
+    for upper in range(0, source_height, step):
+        for left in range(0, source_width, step):
+            right = left + step
+            lower = upper + step
+            if right > source_width:
+                right = source_width
+            if lower > source_height:
+                lower = source_height
+            chunk_indexes.append((left, upper, right, lower))
+            # curr_chunk = source.crop((left, upper, right, lower))
+            # chunks.append(curr_chunk)
+            # best_match = matcher.find_closest(curr_chunk, method=method)
+            # if not use_repeat:
+            #     matcher.remove(best_match)
+            # background.paste(best_match.image, (left, upper))
             curr_chunk_num += 1
             utilities.print_progress(curr_chunk_num, total_chunks)
     utilities.print_done()
 
-    return background
+    background = Image.new(source.mode, source.size, 'black')
+
+    print(
+        'building image | {} | {} x {} | [{}] -> {} '.format(method, background.width, background.height, matcher.size,
+                                                             total_chunks))
+    if use_repeat:
+        return _build_with_repeat(source, background, matcher, chunk_indexes, method)
+    else:
+        return _build_without_repeat(source, background, matcher, chunk_indexes, method)
 
 
-def build(source_file, dest_folder, database_folder, size, factor, use_repeat=True,
+def build(source_file, dest_folder, database_folder, size, factor, use_repeat,
           method=settings.DEFAULT_COLOR_DIFF_METHOD):
     matcher = generate_matcher(database_folder, size)
     resized_source = resize_to_factor(Image.open(source_file).convert('RGB'), factor)
