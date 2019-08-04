@@ -1,9 +1,9 @@
 # :white_square_button:Mosaic-Pics
 [English](https://github.com/Redcxx/Mosaic-Pics/blob/master/README.md)
 -  [图片来源](https://twitter.com/sukemyon_443/status/1030028596339822594)
--  尺寸: 4650 x 8280
--  图片数据库数量: 3.3w
--  使用的图片数量: 0.6w
+-  尺寸: 1150 x 2046
+-  图片数据库数量: 3.3w+
+-  使用的图片数量: 1.0w+
 -  如果你想我帮你做，写一个issue就行辣
 
 
@@ -47,6 +47,6 @@
 
 ```
 # 注意
-- 用新图片文件运行时，程序会在文件夹建立一个数据库，加快接下来的运行，详情参考[settings.py](https://github.com/Redcxx/Mosaic-Pics/blob/master/settings.py)
+- 用新图片文件运行时，程序会在文件夹建立一个数据库，数据库大的情况下会极大加快接下来的运行，详情参考[settings.py](https://github.com/Redcxx/Mosaic-Pics/blob/master/settings.py)
 - 用新文件夹之前，最好改一下[settings.py](https://github.com/Redcxx/Mosaic-Pics/blob/master/settings.py)里的数据库参数
 - 程序只会用jpg和png文件，并且不会深入文件夹中的文件夹搜寻图片
