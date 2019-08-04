@@ -1,10 +1,10 @@
 # :white_square_button:Mosaic-Pics
 [English](https://github.com/Redcxx/Mosaic-Pics/blob/master/README.md)
--  [图片来源](https://twitter.com/sukemyon_443/status/1030028596339822594)
--  尺寸: 1150 x 2046
--  图片数据库数量: 3.3w+
--  使用的图片数量: 1.0w+
--  如果你想我帮你做，写一个issue就行辣
+>-  [图片来源](https://twitter.com/sukemyon_443/status/1030028596339822594)
+>-  尺寸: 1150 x 2046
+>-  图片数据库数量: 3.3w+
+>-  使用的图片数量: 1.0w+
+>-  如果你想我帮你做，写一个issue就行辣
 
 
 ![例图](https://github.com/Redcxx/Mosaic-Pics/blob/master/picture_output/euclidean/picture_0.7.jpg)
