@@ -1,10 +1,10 @@
 # :white_square_button:Mosaic-Pics
 [中文](https://github.com/Redcxx/Mosaic-Pics/blob/master/README.cn.md)
--  [Sample Image Source](https://twitter.com/sukemyon_443/status/1030028596339822594)
--  Dimension: 1150 x 2046
--  Database: 33k+
--  Used: 10k+
-- If you do not have images, I can build it for you, make a issue!
+>-  [Sample Image Source](https://twitter.com/sukemyon_443/status/1030028596339822594)
+>-  Dimension: 1150 x 2046
+>-  Database: 33k+
+>-  Used: 10k+
+>- If you do not have images, I can build it for you, make a issue!
 
 ![sample image](https://github.com/Redcxx/Mosaic-Pics/blob/master/picture_output/euclidean/picture_0.7.jpg)
 - For demostration purpose, this Image has 30% alpha blended with original, for raw output visits [picture_output](https://github.com/Redcxx/Mosaic-Pics/tree/master/picture_output)
