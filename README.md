@@ -6,8 +6,8 @@
 -  Used: 6k+
 - If you do not have images, I can build it for you, make a issue!
 
-> For demostration purpose, this Image has 30% alpha blended with original, for more refined output visits [picture_output](https://github.com/Redcxx/Mosaic-Pics/tree/master/picture_output)
-![sample image](https://github.com/Redcxx/Mosaic-Pics/blob/master/picture_output/euclidean/picture_1.0_background.jpg)
+![sample image](https://github.com/Redcxx/Mosaic-Pics/blob/master/picture_output/euclidean/picture_0.7.jpg)
+- For demostration purpose, this Image has 30% alpha blended with original, for raw output visits [picture_output](https://github.com/Redcxx/Mosaic-Pics/tree/master/picture_output)
 # Usage
 ```
 > main.py
